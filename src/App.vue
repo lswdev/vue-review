@@ -1,16 +1,17 @@
 <template>
   <div id="app">
     <HeaderView></HeaderView>
-
+    <ProgressView></ProgressView>
   </div>
 </template>
 
 <script>
 import HeaderView from './components/HeaderView.vue'
+import ProgressView from './components/ProgressView.vue'
 
 export default {
   name: 'App',
-  components: { HeaderView }
+  components: { HeaderView, ProgressView }
 }
 </script>
 
