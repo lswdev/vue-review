@@ -8,9 +8,12 @@
     </div>
     <div class="questionContain">
       <p>{{ questionTitle }}</p>
-      <ul class="questions" v-for="questions in questionList" :key="questions.id">
-        <li>
-          <input type="radio" value=""> <span v-text="questions.text"></span>
+      <ul class="questions">
+        <li v-for="(item) in questionList" :key="item.id">
+          <input type="radio" :id="item.key" :value="item" name="radioGroup">
+          <label :for="item.key">
+            <span v-text="item.text"></span>
+          </label>
         </li>
       </ul>
     </div>
@@ -21,17 +24,22 @@
   export default {
     data: () => ({
       questionList: [
-        { text: '매우 상세하게 설명' },
-        { text: '비교적 상세하게 설명' },
-        { text: '일반적으로 설명' },
-        { text: '대충 설명함' },
-        { text: '설명 안함' },
+        { key: 'question01', text: '매우 상세하게 설명' },
+        { key: 'question02', text: '비교적 상세하게 설명' },
+        { key: 'question03', text: '일반적으로 설명' },
+        { key: 'question04', text: '대충 설명함' },
+        { key: 'question05', text: '설명 안함' },
       ],
       questionTitle: '1. 수리기사는 수리 내용에 대해 상세하게 설명해 주었나요?',
+      picked: '',
+      radioNm: 'radio01',
     }),
+    mounted() {
+    },
+    watch: {
+    },
     methods: {
-
-    }
+    },
   }
 </script>
 
@@ -48,11 +56,17 @@
     margin-bottom: 40px;
   }
   section > div:first-child {
-    font-size: 1.55rem;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.04rem;
+  }
+  section > div:nth-of-type(2), .questionContain > p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: -0.03rem;
   }
   .questionContain {
     display: flex;
@@ -61,5 +75,30 @@
   }
   .questionContain > p {
     margin-top: 0;
+    margin-bottom: 40px;
+  }
+  .questions > li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .questions > li label {
+    cursor: pointer;
+  }
+  .questions > li span {
+    padding-left: 0.8rem;
+  }
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #eee;
+    border-radius: 100%;
+  }
+  input[type="radio"]:checked {
+    border: 3px solid #1890FF;
+    border-radius: 100%;
   }
 </style>
