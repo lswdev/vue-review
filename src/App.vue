@@ -3,7 +3,7 @@
     <HeaderView></HeaderView>
     <ProgressView></ProgressView>
     <ContentView></ContentView>
-    <FooterView></FooterView>
+    <FooterView @paging="paging"></FooterView>
   </div>
 </template>
 
@@ -15,7 +15,15 @@ import FooterView from './components/FooterView.vue'
 
 export default {
   name: 'App',
-  components: { HeaderView, ProgressView, ContentView, FooterView }
+  data:() => ({
+    pages: 1,
+  }),
+  components: { HeaderView, ProgressView, ContentView, FooterView },
+  methods: {
+    paging(value) {
+      this.pages = value;
+    }
+  }
 }
 </script>
 
