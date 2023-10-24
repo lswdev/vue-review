@@ -9,7 +9,7 @@
     <div class="questionContain">
       <p>{{ questionTitle }}</p>
       <ul class="questions">
-        <li v-for="(item) in questionList" :key="item.id">
+        <li v-for="(item) in (this.paging==1 ? questionList : questionList2)" :key="item.id">
           <input type="radio" :id="item.key" :value="item" name="radioGroup">
           <label :for="item.key">
             <span v-text="item.text"></span>
@@ -30,15 +30,27 @@
         { key: 'question04', text: '대충 설명함' },
         { key: 'question05', text: '설명 안함' },
       ],
+      questionList2: [
+        { key: 'question06', text: '정확하게 진행' },
+        { key: 'question07', text: '조금 늦게 진행(10분 내)' },
+        { key: 'question08', text: '다소 늦게 진행(30분 내)' },
+        { key: 'question09', text: '매우 늦게 진행(1시간 내)' },
+        { key: 'question10', text: '1시간 이상 지연됨' },
+      ],
       questionTitle: '1. 수리기사는 수리 내용에 대해 상세하게 설명해 주었나요?',
       picked: '',
       radioNm: 'radio01',
+      paging: 1,
     }),
     mounted() {
+      this.radioCheck();
     },
     watch: {
     },
     methods: {
+      radioCheck() {
+        document.querySelector('.questions > li > input:first-child').checked = 'checked';
+      }
     },
   }
 </script>

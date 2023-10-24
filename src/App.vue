@@ -3,6 +3,7 @@
     <HeaderView></HeaderView>
     <ProgressView></ProgressView>
     <ContentView></ContentView>
+    <FooterView></FooterView>
   </div>
 </template>
 
@@ -10,10 +11,11 @@
 import HeaderView from './components/HeaderView.vue'
 import ProgressView from './components/ProgressView.vue'
 import ContentView from './components/ContentView.vue'
+import FooterView from './components/FooterView.vue'
 
 export default {
   name: 'App',
-  components: { HeaderView, ProgressView, ContentView }
+  components: { HeaderView, ProgressView, ContentView, FooterView }
 }
 </script>
 
