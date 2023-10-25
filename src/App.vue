@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <HeaderView></HeaderView>
-    <ProgressView></ProgressView>
-    <ContentView></ContentView>
+    <ProgressView :pagingNumber="pages"></ProgressView>
+    <ContentView :pagingNumber="pages"></ContentView>
     <FooterView @paging="paging"></FooterView>
   </div>
 </template>

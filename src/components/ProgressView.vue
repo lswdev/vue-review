@@ -6,24 +6,24 @@
         <img :src="iconFirst" alt="icon-engineer">
         <div>수리기사</div>
       </li>
-      <li></li>
+      <li :class="this.pagingNumber > 1 ? blueLine: ''"></li>
       <li>
-        <img :src="iconSecond" alt="icon-clock">
+        <img :src="this.pagingNumber > 1 ? iconSecond: iconSecondGrey" alt="icon-clock">
         <div>시간약속</div>
       </li>
-      <li></li>
+      <li :class="this.pagingNumber > 2 ? blueLine: ''"></li>
       <li>
-        <img :src="iconThird" alt="icon-recycle">
+        <img :src="this.pagingNumber > 2 ? iconThird: iconThirdGrey" alt="icon-recycle">
         <div>대기환경</div>
       </li>
-      <li></li>
+      <li :class="this.pagingNumber > 3 ? blueLine: ''"></li>
       <li>
-        <img :src="iconFourth" alt="icon-person">
+        <img :src="this.pagingNumber > 3 ? iconFourth: iconFourthGrey" alt="icon-person">
         <div>응대수준</div>
       </li>
-      <li></li>
+      <li :class="this.pagingNumber > 4 ? blueLine: ''"></li>
       <li>
-        <img :src="iconFifth" alt="icon-pages">
+        <img :src="this.pagingNumber > 4 ? iconFifth: iconFifthGrey" alt="icon-pages">
         <div>추가사항</div>
       </li>
     </ul>
@@ -33,15 +33,27 @@
 
 <script>
   export default {
+    props: {
+      pagingNumber: {
+        type: Number
+      }
+    },
     data: () => ({
       iconFirst: require('../assets/icons/icon-engineer.svg'),
-      iconSecond: require('../assets/icons/icon-clock-grey.svg'),
-      iconThird: require('../assets/icons/icon-recycle-grey.svg'),
-      iconFourth: require('../assets/icons/icon-person-grey.svg'),
-      iconFifth: require('../assets/icons/icon-pages-grey.svg'),
-    }),
-    methods: {
+      iconSecondGrey: require('../assets/icons/icon-clock-grey.svg'),
+      iconSecond: require('../assets/icons/icon-clock.svg'),
+      iconThirdGrey: require('../assets/icons/icon-recycle-grey.svg'),
+      iconThird: require('../assets/icons/icon-recycle.svg'),
+      iconFourthGrey: require('../assets/icons/icon-person-grey.svg'),
+      iconFourth: require('../assets/icons/icon-person.svg'),
+      iconFifthGrey: require('../assets/icons/icon-pages-grey.svg'),
+      iconFifth: require('../assets/icons/icon-pages.svg'),
 
+      blueLine: 'blue-line',
+    }),
+    watch: {
+    },
+    methods: {
     }
   }
 
@@ -74,5 +86,8 @@
   }
   .progressContain > li > div {
     white-space: nowrap;
+  }
+  .blue-line {
+    background-color: #1890FF !important;
   }
 </style>
