@@ -43,6 +43,7 @@ export default {
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.0225rem;
+    user-select: none;
   }
   * { text-decoration: none; }
   ul { margin: 0; padding: 0; }

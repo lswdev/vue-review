@@ -10,7 +10,7 @@
       <p>{{ this.pagingNumber==1 ? questionTitle : (this.pagingNumber==2 ? questionTitle2: (this.pagingNumber==3 ? questionTitle3: (this.pagingNumber==4 ? questionTitle4: questionTitle5))) }}</p>
       <ul class="questions" v-if="this.pagingNumber < 5">
         <li v-for="(item) in (this.pagingNumber==1 ? questionList : (this.pagingNumber==2 ? questionList2: (this.pagingNumber==3 ? questionList3: questionList4)))" :key="item.id">
-          <input type="radio" :id="item.key" :value="item" name="radioGroup">
+          <input type="radio" :id="item.key" :value="item" name="radioGroup" @change="radioChange(item)" :checked="item.checked">
           <label :for="item.key">
             <span v-text="item.text"></span>
           </label>
@@ -36,28 +36,28 @@
     },
     data: () => ({
       questionList: [
-        { key: 'question01', text: '매우 상세하게 설명' },
+        { key: 'question01', text: '매우 상세하게 설명', checked: 'checked' },
         { key: 'question02', text: '비교적 상세하게 설명' },
         { key: 'question03', text: '일반적으로 설명' },
         { key: 'question04', text: '대충 설명함' },
         { key: 'question05', text: '설명 안함' },
       ],
       questionList2: [
-        { key: 'question06', text: '정확하게 진행' },
+        { key: 'question06', text: '정확하게 진행', checked: 'checked' },
         { key: 'question07', text: '조금 늦게 진행(10분 내)' },
         { key: 'question08', text: '다소 늦게 진행(30분 내)' },
         { key: 'question09', text: '매우 늦게 진행(1시간 내)' },
         { key: 'question10', text: '1시간 이상 지연됨' },
       ],
       questionList3: [
-        { key: 'question11', text: '매우 청결함' },
+        { key: 'question11', text: '매우 청결함', checked: 'checked' },
         { key: 'question12', text: '비교적 청결함' },
         { key: 'question13', text: '보통' },
         { key: 'question14', text: '다소 어수선함' },
         { key: 'question15', text: '매우 지저분함' },
       ],
       questionList4: [
-        { key: 'question16', text: '매우 친절하게 응대' },
+        { key: 'question16', text: '매우 친절하게 응대', checked: 'checked' },
         { key: 'question17', text: '비교적 친절하게 응대' },
         { key: 'question18', text: '보통' },
         { key: 'question19', text: '다소 불친절함' },
@@ -75,12 +75,14 @@
       this.radioCheck();
     },
     watch: {
-
     },
     methods: {
       radioCheck() {
         document.querySelector('.questions > li > input:first-child').checked = 'checked';
       },
+      radioChange(){//item
+        // console.dir(item);
+      }
     },
   }
 </script>
