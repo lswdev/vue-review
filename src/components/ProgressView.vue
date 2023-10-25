@@ -3,27 +3,27 @@
   <section>
     <ul class="progressContain">
       <li>
-        <img :src="iconFirst" alt="icon-engineer">
+        <img :src="this.pagingNumber == 1 ? iconFirst: iconCheck" alt="icon-engineer">
         <div>수리기사</div>
       </li>
       <li :class="this.pagingNumber > 1 ? blueLine: ''"></li>
       <li>
-        <img :src="this.pagingNumber > 1 ? iconSecond: iconSecondGrey" alt="icon-clock">
+        <img :src="this.pagingNumber > 2 ? iconCheck: (this.pagingNumber == 2 ? iconSecond : iconSecondGrey)" alt="icon-clock">
         <div>시간약속</div>
       </li>
       <li :class="this.pagingNumber > 2 ? blueLine: ''"></li>
       <li>
-        <img :src="this.pagingNumber > 2 ? iconThird: iconThirdGrey" alt="icon-recycle">
+        <img :src="this.pagingNumber > 3 ? iconCheck: (this.pagingNumber == 3 ? iconThird : iconThirdGrey)" alt="icon-recycle">
         <div>대기환경</div>
       </li>
       <li :class="this.pagingNumber > 3 ? blueLine: ''"></li>
       <li>
-        <img :src="this.pagingNumber > 3 ? iconFourth: iconFourthGrey" alt="icon-person">
+        <img :src="this.pagingNumber > 4 ? iconCheck: (this.pagingNumber == 4 ? iconFourth : iconFourthGrey)" alt="icon-person">
         <div>응대수준</div>
       </li>
       <li :class="this.pagingNumber > 4 ? blueLine: ''"></li>
       <li>
-        <img :src="this.pagingNumber > 4 ? iconFifth: iconFifthGrey" alt="icon-pages">
+        <img :src="this.pagingNumber > 5 ? iconCheck: (this.pagingNumber == 5 ? iconFifth : iconFifthGrey)" alt="icon-pages">
         <div>추가사항</div>
       </li>
     </ul>
@@ -39,6 +39,8 @@
       }
     },
     data: () => ({
+      iconCheck: require('../assets/icons/icon-check.svg'),
+
       iconFirst: require('../assets/icons/icon-engineer.svg'),
       iconSecondGrey: require('../assets/icons/icon-clock-grey.svg'),
       iconSecond: require('../assets/icons/icon-clock.svg'),

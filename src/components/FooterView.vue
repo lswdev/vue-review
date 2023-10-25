@@ -1,9 +1,13 @@
 
 <template>
   <footer>
-    <div class="pagination">
+    <div class="pagination" v-if="pageNm != 6">
       <button style="background-color: #FFF; color:#1890FF;" @click="prevClick" v-if="pageNm > 1"><img src="../assets/icons/arrow_back.svg" alt="이전"> 이전</button>
-      <button style="background-color: #1890FF; color:#FFF;" @click="nextClick">다음 <img src="../assets/icons/arrow_forward.svg" alt="다음"></button>
+      <button style="background-color: #1890FF; color:#FFF;" @click="nextClick" v-if="pageNm < 5">다음 <img src="../assets/icons/arrow_forward.svg" alt="다음"></button>
+      <button style="background-color: #1890FF; color:#FFF;" @click="nextClick" v-else-if="pageNm == 5">완료 <img src="../assets/icons/arrow_forward.svg" alt="다음"></button>
+    </div>
+    <div class="pagination close" v-else>
+      <button style="background-color: #1890FF; color:#FFF;" @click="closeClick"> 닫기 </button>
     </div>
   </footer>
 </template>
@@ -25,6 +29,9 @@
           this.pageNm += 1;
         }
         this.$emit("paging", this.pageNm);
+      },
+      closeClick(){
+        // window.close();
       }
     }
   }
@@ -51,5 +58,9 @@
     font-size: 1.15rem;
     font-weight: 700;
     cursor: pointer;
+  }
+  .pagination.close {
+    float: unset;
+    justify-content: center;
   }
 </style>

@@ -1,0 +1,13 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 2">
+<rect width="60" height="60" rx="30" fill="#1890FF"/>
+<g id="file_download_done">
+<mask id="mask0_1_2772" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="15" y="15" width="30" height="30">
+<rect id="Bounding box" x="15" y="15" width="30" height="30" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_1_2772)">
+<path id="file_download_done_2" d="M26.8957 34.6458L19.9478 27.6979L21.4373 26.2292L26.8957 31.6875L38.5832 20L40.0519 21.4896L26.8957 34.6458ZM21.2498 40V37.9167H38.7498V40H21.2498Z" fill="white"/>
+</g>
+</g>
+</g>
+</svg>
